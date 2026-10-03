@@ -140,7 +140,7 @@ main{margin:0;padding:150px 16px 120px}
 
 <main id="home">
   <header class="top">
-    <div><h1>Behind the smooth operations</h1><p class="sub">Social media and operations manager in Manila. I run the data, automations and campaigns that keep small businesses moving.</p></div>
+    <div><h1>Behind the smooth operations</h1><p class="sub">I help small businesses run smoother with data, automations, and marketing campaigns that keep things moving.</p></div>
     <a class="pill" href="#contact">Get in touch</a>
   </header>
 
@@ -163,7 +163,7 @@ main{margin:0;padding:150px 16px 120px}
       <div class="cred" id="cred">Certificates will be listed here. Edit the <code>CREDS</code> array in this file.</div>
     </section>
     <section class="card c3" id="services"><span class="tag">5</span><h2>Services</h2><p class="d">What I take on for clients.</p>
-      <ol class="ol"><li><b>01</b><span>Customer management</span></li><li><b>02</b><span>Data analysis</span></li><li><b>03</b><span>Social media marketing</span></li><li><b>04</b><span>Digital marketing</span></li></ol>
+      <ol class="ol"><li><b>01</b><span>Social Media Management and Marketing</span></li><li><b>02</b><span>Data Analysis</span></li><li><b>03</b><span>Social Media Management and Marketing</span></li><li><b>04</b><span>Automations</span></li></ol>
     </section>
     <section class="card c3" id="contact"><span class="tag">6</span><h2>FAQs / Contact</h2><p class="d">Book a call or send a message.</p>
       <details><summary>Where are you based?</summary><p>Manila, Philippines. I work on US-friendly hours.</p></details>
@@ -195,7 +195,7 @@ main{margin:0;padding:150px 16px 120px}
 <dialog id="pd"><h2>Privacy Policy</h2>
 <p>Contact form: your name, email and message are used only to reply to you. They are not sold or shared.</p>
 <p>Booking: Calendly processes the details you enter when booking a call, under its own privacy policy.</p>
-<p>Chat assistant: questions you type are sent to an AI provider (Google Gemini) to generate a reply. This site does not store them.</p>
+<p>Chatbot: questions are answered using the fixed information built into this site. No AI provider or external chat API is used.</p>
 <p>Cookies and storage: only your theme and notice choice are stored in your browser. If a visit counter or analytics is added, this policy and the notice will be updated first.</p>
 <p>Contact: klexbykem@gmail.com</p>
 <form method="dialog"><button class="pill">Close</button></form></dialog>
@@ -236,10 +236,7 @@ m.textContent='Opening your email app to send.'};
 // chatbot (answers from fixed facts only; no API key in this file)
 var A={'What do you do?':'Social media and operations management, data analysis, and GoHighLevel/AI automations.','Which tools do you use?':T.join(', ')+'.','Where are you based?':'Manila, Philippines.','How do I hire you?':'Use the booking calendar or contact form on this page.'};
 var busy=false;function add(t,c){var d=document.createElement('div');d.className='b '+c;d.textContent=t;$('#lg').appendChild(d);$('#lg').scrollTop=1e9;return d}
-async function ask(q){if(busy)return;busy=true;add(q,'u');var w=add('Thinking...','a');
-try{var rs=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({q:q})}),j=await rs.json();w.textContent=(j&&(j.a||j.e))||'Something went wrong. Please try again.'}
-catch(e){w.textContent=A[q]||'The assistant is offline right now. Please use the booking calendar or contact form.'}
-busy=false;$('#lg').scrollTop=1e9}
+function ask(q){if(busy)return;busy=true;add(q,'u');var w=add('Typing...','a');setTimeout(function(){w.textContent=A[q]||'I can help with questions about Klex, services, tools, location, and hiring. Try one of the questions below.';busy=false;$('#lg').scrollTop=1e9},350)}
 var qs=$('#qs');Object.keys(A).forEach(function(k){var b=document.createElement('button');b.type='button';b.textContent=k;b.onclick=function(){ask(k)};qs.appendChild(b)});
 $('#cb').onsubmit=function(e){e.preventDefault();var v=$('#ci').value.trim();if(!v||v.length>300)return;$('#ci').value='';ask(v)};
 $('#bb').onclick=function(){var o=$('#pn').classList.toggle('open');this.setAttribute('aria-expanded',o)};
