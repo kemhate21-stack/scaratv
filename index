@@ -195,7 +195,7 @@ main{margin:0;padding:150px 16px 120px}
 <dialog id="pd"><h2>Privacy Policy</h2>
 <p>Contact form: your name, email and message are used only to reply to you. They are not sold or shared.</p>
 <p>Booking: Calendly processes the details you enter when booking a call, under its own privacy policy.</p>
-<p>Chat assistant: questions you type are sent to an AI provider (Groq) to generate a reply. This site does not store them.</p>
+<p>Chat assistant: questions you type are sent to an AI provider (Google Gemini) to generate a reply. This site does not store them.</p>
 <p>Cookies and storage: only your theme and notice choice are stored in your browser. If a visit counter or analytics is added, this policy and the notice will be updated first.</p>
 <p>Contact: klexbykem@gmail.com</p>
 <form method="dialog"><button class="pill">Close</button></form></dialog>
